@@ -25,3 +25,7 @@ Route::get('/main', function(){
 
 // // Handle login request
 // Route::post('/login', 'AuthController@login');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
