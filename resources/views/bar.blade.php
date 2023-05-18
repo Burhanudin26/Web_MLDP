@@ -31,7 +31,8 @@
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body" style="background-color: #D4ADFC">
-      <ul class="nav nav-pills flex-column mt-4">
+      @yield('offscreen')
+      {{-- <ul class="nav nav-pills flex-column mt-4">
         <li class="nav-item py-2 py-sm-0">
           <a href="#" class="nav-link text-white" aria-current="page">
             <i class="fs-5 fa fa-gauge"></i><span class="fs-4 ms-3 d-none d-sm-inline">Dashboard</span>
@@ -57,7 +58,7 @@
             <i class="fs-5 fa fa-users"></i><span class="fs-4 ms-3 d-none d-sm-inline">Customers</span>
           </a>
         </li>
-      </ul>    
+      </ul>     --}}
     </div>
   </div>
     <main>
