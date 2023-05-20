@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('status');
+            $table->string('location')->nullable(); // Add 'location' column
             $table->timestamps();
         });
     }

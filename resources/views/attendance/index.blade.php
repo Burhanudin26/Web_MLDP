@@ -1,4 +1,4 @@
-{{-- <!-- resources/views/attendance/index.blade.php -->
+<!-- resources/views/attendance/index.blade.php -->
 @extends('bar')
 
 @section('main')
@@ -10,6 +10,7 @@
                 <tr>
                     <th>Name</th>
                     <th>Status</th>
+                    <th>Location</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -18,6 +19,7 @@
                 <tr>
                     <td>{{ $attendance->name }}</td>
                     <td>{{ $attendance->status }}</td>
+                    <td>{{ $attendance->location }}</td>
                     <td>
                         <form action="{{ route('attendance.destroy', $attendance->id) }}" method="POST">
                             @csrf
@@ -31,10 +33,10 @@
             </tbody>
         </table>
     </div>
-@endsection --}}
+@endsection
 
 <!-- resources/views/attendance/index.blade.php -->
-@extends('bar')
+{{-- @extends('bar')
 
 @section('main')
     <div class="container">
@@ -71,4 +73,4 @@
         </table>
     </div>
 @endsection
-
+ --}}

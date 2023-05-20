@@ -1,4 +1,4 @@
-{{-- <!-- resources/views/attendance/edit.blade.php -->
+<!-- resources/views/attendance/edit.blade.php -->
 @extends('bar')
 
 @section('main')
@@ -44,9 +44,9 @@
             </div>
         </div>
     </div>
-@endsection --}}
+@endsection
 <!-- resources/views/attendance/edit.blade.php -->
-@extends('bar')
+{{-- @extends('bar')
 
 @section('main')
     <div class="container">
@@ -66,4 +66,4 @@
             <button type="button" class="btn btn-danger">Delete</button>
         </form>
     </div>
-@endsection
+@endsection --}}

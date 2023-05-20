@@ -1,4 +1,4 @@
-{{-- <!-- resources/views/attendance/show.blade.php -->
+<!-- resources/views/attendance/show.blade.php -->
 @extends('bar')
 
 @section('main')    <div class="container">
@@ -17,9 +17,9 @@
         </table>
         <a href="{{ route('attendance.index') }}" class="btn btn-primary">Back</a>
     </div>
-@endsection --}}
+@endsection
 <!-- resources/views/attendance/show.blade.php -->
-@extends('bar')
+{{-- @extends('bar')
 
 @section('main')
     <div class="container">
@@ -35,4 +35,4 @@
         <a href="#" class="btn btn-primary">Edit</a>
         <button class="btn btn-danger">Delete</button>
     </div>
-@endsection
+@endsection --}}

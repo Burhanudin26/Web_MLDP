@@ -23,6 +23,7 @@ class AttendanceController extends Controller
         $request->validate([
             'name' => 'required',
             'status' => 'required',
+            'location' => 'required',
         ]);
 
         Attendance::create($request->all());
@@ -46,6 +47,7 @@ class AttendanceController extends Controller
         $request->validate([
             'name' => 'required',
             'status' => 'required',
+            'location' => 'required',
         ]);
 
         $attendance->update($request->all());

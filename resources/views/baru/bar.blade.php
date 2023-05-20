@@ -12,13 +12,13 @@
         background-color: rgb(50, 47, 54);
         color: white
       }
-    
+
     #calendar {
       max-width: 1100px;
       margin: 4px auto;
     }
     .nav-pills li a:hover{
-      background-color: #000000 
+      background-color: #000000
     }
     </style>
     <title>MAIN MENU</title>
@@ -31,8 +31,7 @@
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body" style="background-color: #D4ADFC">
-      @yield('side')
-      {{-- <ul class="nav nav-pills flex-column mt-4">
+      <ul class="nav nav-pills flex-column mt-4">
         <li class="nav-item py-2 py-sm-0">
           <a href="#" class="nav-link text-white" aria-current="page">
             <i class="fs-5 fa fa-gauge"></i><span class="fs-4 ms-3 d-none d-sm-inline">Dashboard</span>
@@ -58,7 +57,7 @@
             <i class="fs-5 fa fa-users"></i><span class="fs-4 ms-3 d-none d-sm-inline">Customers</span>
           </a>
         </li>
-      </ul>     --}}
+      </ul>
     </div>
   </div>
     <main>
@@ -78,40 +77,42 @@
                     </div>
                 @else
                     <div>
-                        <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                      <!-- Authentication Links -->
-                      @guest
-                      @else
-                          <li class="nav-item dropdown">
-                              <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                  {{ Auth::user()->name }}
-                              </a>
-
-                              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                  <a class="dropdown-item" href="{{ route('logout') }}"
-                                     onclick="event.preventDefault();
-                                                   document.getElementById('logout-form').submit();">
-                                      {{ __('Logout') }}
-                                  </a>
-
-                                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                      @csrf
-                                  </form>
-                              </div>
-                          </li>
-                      @endguest
-                  </ul>
+                        <a class="navbar-brand text-white " href="#" id="login-link">Login</a>
                     </div>
                 @endif
             </nav>
         </div>
 
-        
-        
+        <form method="POST" action="/login" id="login-form" style="display:none">
+            @csrf
+            <div>
+                <label>Email:</label>
+                <input type="email" name="email" required>
+            </div>
+            <div>
+                <label>Password:</label>
+                <input type="password" name="password" required>
+            </div>
+            <div>
+                <button type="submit">Login</button>
+            </div>
+            @if ($errors->has('login'))
+                <div class="alert alert-danger">
+                    {{ $errors->first('login') }}
+                </div>
+            @endif
+        </form>
+
+        <script>
+            document.getElementById('login-link').addEventListener('click', function() {
+                document.getElementById('login-form').style.display = 'block';
+            });
+        </script>
+
+
         {{-- <nav class="navbar navbar-expand-md navbar-light shadow-md sticky-top" style="background-color:#1D267D">
             <div class="container-fluid">
-              
+
               <button class="btn btn-primary mr-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">sidebar</button>
                 <a class="navbar-brand" href="{{ url('/') }}" style="color:honeydew">
                     Check Profile

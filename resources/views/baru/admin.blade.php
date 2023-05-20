@@ -10,9 +10,3 @@
 - Membuat, Melihat, Mengupdate, dan Menghapus Panduan
 - Membuat, Melihat, Mengupdate, dan Menghapus Akun Mahasiswa dan Akun Dosen
     --}}
-@extends('bar')
-
-@section('main')
-
-
-@endsection
