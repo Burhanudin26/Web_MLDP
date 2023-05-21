@@ -19,18 +19,38 @@ class AttendanceController extends Controller
     }
 
     public function store(Request $request)
-    {
-        $request->validate([
-            'name' => 'required',
-            'status' => 'required',
-            'location' => 'required',
-        ]);
+{
+    $request->validate([
+        'name' => 'required',
+        'status' => 'required',
+        'latitude' => 'required',
+        'longitude' => 'required',
+        'distance' => 'required|numeric',
+    ]);
 
-        Attendance::create($request->all());
+    // Retrieve the latitude, longitude, and distance values from the request
+    $latitude = $request->input('latitude');
+    $longitude = $request->input('longitude');
+    $distance = $request->input('distance');
 
-        return redirect()->route('attendance.index')
-            ->with('success', 'Attendance created successfully.');
-    }
+    // Perform any additional server-side logic or database operations with the location and distance values as needed
+
+    // Determine the status based on the distance
+    $status = $distance > 2 ? 'Invalid' : $request->input('status');
+
+    // Create a new Attendance record
+    Attendance::create([
+        'name' => $request->input('name'),
+        'status' => $status,
+        'latitude' => $latitude,
+        'longitude' => $longitude,
+        'distance' => $distance,
+    ]);
+
+    return redirect()->route('attendance.index')
+        ->with('success', 'Attendance created successfully.');
+}
+
 
     public function show(Attendance $attendance)
     {
@@ -47,7 +67,6 @@ class AttendanceController extends Controller
         $request->validate([
             'name' => 'required',
             'status' => 'required',
-            'location' => 'required',
         ]);
 
         $attendance->update($request->all());

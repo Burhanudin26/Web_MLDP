@@ -12,9 +12,24 @@
                 <input type="text" class="form-control" id="name" name="name" value="{{ $attendance->name }}" required>
             </div>
             <div class="form-group">
-                <label for="status">Status:</label>
-                <input type="text" class="form-control" id="status" name="status" value="{{ $attendance->status }}" required>
+                <label>Status:</label><br>
+                <label for="present">
+                    <input type="radio" id="present" name="status" value="Present" {{ $attendance->status === 'Present' ? 'checked' : '' }} required> Present
+                </label><br>
+                <label for="excuse">
+                    <input type="radio" id="excuse" name="status" value="Excuse" {{ $attendance->status === 'Excuse' ? 'checked' : '' }} required> Excuse
+                </label><br>
+                <label for="absent">
+                    <input type="radio" id="absent" name="status" value="Absent" {{ $attendance->status === 'Absent' ? 'checked' : '' }} required> Absent
+                </label><br>
+                <label for="sick">
+                    <input type="radio" id="sick" name="status" value="Sick" {{ $attendance->status === 'Sick' ? 'checked' : '' }} required> Sick
+                </label><br>
+                <label for="invalid">
+                    <input type="radio" id="invalid" name="status" value="Invalid" {{ $attendance->status === 'Invalid' ? 'checked' : '' }} required> Invalid
+                </label><br>
             </div>
+            
             <button type="submit" class="btn btn-primary">Update</button>
             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
         </form>

@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('status');
-            $table->string('location')->nullable(); // Add 'location' column
+            $table->string('latitude')->nullable(); // Add 'location' column
+            $table->string('longitude')->nullable(); // Add 'location' column
+            $table->float('distance')->nullable(); // Add 'location' column
             $table->timestamps();
         });
     }

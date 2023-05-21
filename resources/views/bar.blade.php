@@ -5,14 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="fontawesome-free-6.4.0-web/css/all.min.css">
+    <link rel="stylesheet" href={{url("css/bootstrap.min.css")  }}>
+    <link rel="stylesheet" href={{ url("fontawesome-free-6.4.0-web/css/all.min.css") }}>
     <style>
-    .gundam{
-        background-color: rgb(50, 47, 54);
-        color: white
-      }
-    
     #calendar {
       max-width: 1100px;
       margin: 4px auto;
@@ -171,17 +166,20 @@
                 </div>
             </div>
         </nav> --}}
+      {{-- <div class="section" style="background-color: #0C134F; min-height:200px">
         @yield('main')
-          <div class="footer">
+      </div> --}}
+      @yield('main')
+          <div class="footer sticky-bottom">
               <div class="text-center p-3" style="background-color:#1D267D">
               <a class="text-light">© 2023 Copyright: Kelompok 8</a>
               </div>
           </div>
           
     </main>
-<script src="js/bootstrap.bundle.min.js"></script>
-<script src="fontawesome-free-6.4.0-web/js/all.min.js"></script>
-<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.7/index.global.min.js'></script>
+<script src={{ url("js/bootstrap.bundle.min.js") }}></script>
+<script src={{ url("fontawesome-free-6.4.0-web/js/all.min.js") }}></script>
+<script src={{ url('https://cdn.jsdelivr.net/npm/fullcalendar@6.1.7/index.global.min.js') }}></script>
 <script>
 
   document.addEventListener('DOMContentLoaded', function() {

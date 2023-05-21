@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Attendance extends Model
 {
-    protected $fillable = ['name', 'status', 'location'];
+    protected $fillable = ['name', 'status', 'latitude', 'longitude','distance'];
 }
 ?>
