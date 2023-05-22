@@ -2,7 +2,7 @@
 
 @section('main')
 <div class="container">
-    <h1>Create User</h1>
+    <h1>Create Dosen</h1>
     
     @if($errors->any())
         <div class="alert alert-danger">
@@ -14,7 +14,7 @@
         </div>
     @endif
     
-    <form action="{{ route('users.store') }}" method="POST">
+    <form action="{{ route('dosens.store') }}" method="POST">
         @csrf
         <div class="form-group">
             <label for="NID">NID</label>

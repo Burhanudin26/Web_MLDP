@@ -60,6 +60,7 @@ Route::get('/main', function(){return view('main');});
 Route::get('/login', function(){return view('auth.login');});
 Route::get('/map', function () {return view('map');});
 Route::get('/distance', function () {return view('distance');});
+Route::get('/profil', function () {return view('Profil');});
 
 
 // Display login form

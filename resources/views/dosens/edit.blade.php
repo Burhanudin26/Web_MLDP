@@ -2,7 +2,7 @@
 
 @section('main')
 <div class="container">
-    <h1>Edit User</h1>
+    <h1>Edit Dosen</h1>
     
     @if($errors->any())
         <div class="alert alert-danger">
@@ -14,7 +14,7 @@
         </div>
     @endif
     
-    <form action="{{ route('users.update', $user) }}" method="POST">
+    <form action="{{ route('dosens.update', $user) }}" method="POST">
         @csrf
         @method('PUT')
         <div class="form-group">

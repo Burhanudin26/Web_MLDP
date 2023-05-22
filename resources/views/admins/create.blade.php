@@ -14,7 +14,7 @@
         </div>
     @endif
     
-    <form action="{{ route('users.store') }}" method="POST">
+    <form action="{{ route('admins.store') }}" method="POST">
         @csrf
         <div class="form-group">
             <label for="NIA">NIA</label>

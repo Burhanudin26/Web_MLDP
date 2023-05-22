@@ -7,19 +7,19 @@
     <table class="table">
         <tr>
             <th>NID</th>
-            <td>{{ $user->NID }}</td>
+            <td>{{ $dosen->NID }}</td>
         </tr>
         <tr>
             <th>Name</th>
-            <td>{{ $user->name }}</td>
+            <td>{{ $dosen->name }}</td>
         </tr>
         <tr>
             <th>Email</th>
-            <td>{{ $user->email }}</td>
+            <td>{{ $dosen->email }}</td>
         </tr>
         <tr>
     </table>
-    <a href="{{ route('users.edit', $user) }}" class="btn btn-secondary">Edit</a>
-    <a href="{{ route('users.index') }}" class="btn btn-primary">Back</a>
+    <a href="{{ route('dosens.edit', $dosen) }}" class="btn btn-secondary">Edit</a>
+    <a href="{{ route('dosens.index') }}" class="btn btn-primary">Back</a>
 </div>
 @endsection

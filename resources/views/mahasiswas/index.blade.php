@@ -37,7 +37,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="5">No mahasiswas found.</td>
+                    <td colspan="4">No mahasiswas found.</td>
                 </tr>
             @endforelse
         </tbody>
