@@ -13,7 +13,7 @@
     <table class="table">
         <thead>
             <tr>
-                <th>NI</th>
+                <th>NID</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Role</th>
@@ -23,7 +23,7 @@
         <tbody>
             @forelse($users as $user)
                 <tr>
-                    <td>{{ $user->NI }}</td>
+                    <td>{{ $user->NID }}</td>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->role }}</td>

@@ -20,6 +20,33 @@ return new class extends Migration
             $table->float('distance')->nullable(); // Add 'location' column
             $table->timestamps();
         });
+        Schema::create('attendance_a', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('status');
+            $table->string('latitude')->nullable(); // Add 'location' column
+            $table->string('longitude')->nullable(); // Add 'location' column
+            $table->float('distance')->nullable(); // Add 'location' column
+            $table->timestamps();
+        });
+        Schema::create('attendances_m', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('status');
+            $table->string('latitude')->nullable(); // Add 'location' column
+            $table->string('longitude')->nullable(); // Add 'location' column
+            $table->float('distance')->nullable(); // Add 'location' column
+            $table->timestamps();
+        });
+        Schema::create('attendances_d', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('status');
+            $table->string('latitude')->nullable(); // Add 'location' column
+            $table->string('longitude')->nullable(); // Add 'location' column
+            $table->float('distance')->nullable(); // Add 'location' column
+            $table->timestamps();
+        });
     }
 
     /**
@@ -30,5 +57,8 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('attendances');
+        Schema::dropIfExists('attendances_a');
+        Schema::dropIfExists('attendances_m');
+        Schema::dropIfExists('attendances_d');
     }
 };

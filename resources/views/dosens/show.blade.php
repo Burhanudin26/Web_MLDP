@@ -6,8 +6,8 @@
     
     <table class="table">
         <tr>
-            <th>NI</th>
-            <td>{{ $user->NI }}</td>
+            <th>NID</th>
+            <td>{{ $user->NID }}</td>
         </tr>
         <tr>
             <th>Name</th>
@@ -18,9 +18,6 @@
             <td>{{ $user->email }}</td>
         </tr>
         <tr>
-            <th>Role</th>
-            <td>{{ $user->role }}</td>
-        </tr>
     </table>
     <a href="{{ route('users.edit', $user) }}" class="btn btn-secondary">Edit</a>
     <a href="{{ route('users.index') }}" class="btn btn-primary">Back</a>

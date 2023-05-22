@@ -51,16 +51,8 @@ body {
       See https://developers.google.com/maps/documentation/javascript/load-maps-js-api
       for more information.
       -->
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
-      defer
-    ></script>
-    <script>
-      // Note: This example requires that you consent to location sharing when
-// prompted by your browser. If you see the error "The Geolocation service
-// failed.", it means you probably did not give permission for the browser to
-// locate you.
-let map, infoWindow;
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly" defer>
+  let map, infoWindow;
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {

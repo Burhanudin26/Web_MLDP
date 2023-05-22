@@ -14,30 +14,15 @@
         </div>
     @endif
     
-    <form action="{{ route('users.store') }}" method="POST">
+    <form action="{{ route('mahasiswas.store') }}" method="POST">
         @csrf
         <div class="form-group">
-            <label for="NI">NI</label>
-            <input type="number" name="NI" id="NI" class="form-control" required>
+            <label for="NIM">NIM</label>
+            <input type="number" name="NIM" id="NIM" class="form-control" required>
         </div>
         <div class="form-group">
             <label for="name">Name</label>
             <input type="text" name="name" id="name" class="form-control" required>
-        </div>
-        <div class="form-group">
-            <label for="role">Role</label>
-            <div>
-                <input type="radio" name="role" id="role-student" value="student" required>
-                <label for="role-student">Student</label>
-            </div>
-            <div>
-                <input type="radio" name="role" id="role-lecture" value="lecture" required>
-                <label for="role-lecture">Lecture</label>
-            </div>
-            <div>
-                <input type="radio" name="role" id="role-admin" value="admin" required>
-                <label for="role-admin">Admin</label>
-            </div>
         </div>
                 <div class="form-group">
             <label for="email">Email</label>

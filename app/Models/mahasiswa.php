@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class mahasiswa extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'role', 'NI', 'email','password','profile_photo'];
+    protected $fillable = ['name', 'NIM', 'email','password','profile_photo'];
 }

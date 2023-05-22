@@ -18,16 +18,12 @@
         @csrf
         @method('PUT')
         <div class="form-group">
+            <label for="NID">NID</label>
+            <input type="number" name="NID" id="NID" class="form-control" value="{{ $user->NID }}" required>
+        </div>
+        <div class="form-group">
             <label for="name">Name</label>
             <input type="text" name="name" id="name" class="form-control" value="{{ $user->name }}" required>
-        </div>
-        <div class="form-group">
-            <label for="role">Role</label>
-            <input type="text" name="role" id="role" class="form-control" value="{{ $user->role }}" required>
-        </div>
-        <div class="form-group">
-            <label for="NI">NI</label>
-            <input type="number" name="NI" id="NI" class="form-control" value="{{ $user->NI }}" required>
         </div>
         <div class="form-group">
             <label for="email">Email</label>

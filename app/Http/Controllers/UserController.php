@@ -3,7 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
     public function index()
@@ -17,20 +17,25 @@ class UserController extends Controller
         return view('users.create');
     }
 
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([
             'name' => 'required',
             'role' => 'required',
-            'NID' => 'required|unique:users',
+            'NI' => 'required|unique:users',
             'email' => 'required|unique:users',
             'password' => 'required',
-        ]);
-
+            'profile_photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048',        ]);
+    
+        // Hash the password
+        $validatedData['password'] = Hash::make($validatedData['password']);
+    
         User::create($validatedData);
-
+    
         return redirect()->route('users.index')->with('success', 'User created successfully.');
     }
+    
 
     public function show(User $user)
     {
@@ -45,11 +50,12 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $validatedData = $request->validate([
-            'name' => 'required',
-            'role' => 'required',
-            'NID' => 'required|unique:users,NID,' . $user->id,
-            'email' => 'required|unique:users,email,' . $user->id,
-            'password' => 'required',
+            'name' => 'required'. $user->NI,
+            'role' => 'required' . $user->NI,
+            'NI' => 'required|unique:users,NI,' . $user->NI,
+            'email' => 'required|unique:users,email,' . $user->NI,
+            'password' => 'required'. $user->NI,
+            'profile_photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048'. $user->NI,
         ]);
 
         $user->update($validatedData);

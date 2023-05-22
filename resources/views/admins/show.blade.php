@@ -6,8 +6,8 @@
     
     <table class="table">
         <tr>
-            <th>NI</th>
-            <td>{{ $user->NI }}</td>
+            <th>NID</th>
+            <td>{{ $user->NID }}</td>
         </tr>
         <tr>
             <th>Name</th>

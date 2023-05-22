@@ -2,7 +2,7 @@
 
 @section('main')
 <div class="container">
-    <h1>Edit User</h1>
+    <h1>Edit Mahasiswa</h1>
     
     @if($errors->any())
         <div class="alert alert-danger">
@@ -14,7 +14,7 @@
         </div>
     @endif
     
-    <form action="{{ route('users.update', $user) }}" method="POST">
+    <form action="{{ route('mahasiswas.update', $user) }}" method="POST">
         @csrf
         @method('PUT')
         <div class="form-group">
@@ -22,12 +22,8 @@
             <input type="text" name="name" id="name" class="form-control" value="{{ $user->name }}" required>
         </div>
         <div class="form-group">
-            <label for="role">Role</label>
-            <input type="text" name="role" id="role" class="form-control" value="{{ $user->role }}" required>
-        </div>
-        <div class="form-group">
-            <label for="NI">NI</label>
-            <input type="number" name="NI" id="NI" class="form-control" value="{{ $user->NI }}" required>
+            <label for="NIM">NIM</label>
+            <input type="number" name="NIM" id="NIM" class="form-control" value="{{ $user->NID }}" required>
         </div>
         <div class="form-group">
             <label for="email">Email</label>

@@ -13,20 +13,18 @@
     <table class="table">
         <thead>
             <tr>
-                <th>NI</th>
+                <th>NID</th>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Role</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
             @forelse($users as $user)
                 <tr>
-                    <td>{{ $user->NI }}</td>
+                    <td>{{ $user->NID }}</td>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
-                    <td>{{ $user->role }}</td>
                     <td>
                         <a href="{{ route('users.show', $user) }}" class="btn btn-primary btn-sm">View</a>
                         <a href="{{ route('users.edit', $user) }}" class="btn btn-secondary btn-sm">Edit</a>

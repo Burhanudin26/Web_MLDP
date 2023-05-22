@@ -22,12 +22,8 @@
             <input type="text" name="name" id="name" class="form-control" value="{{ $user->name }}" required>
         </div>
         <div class="form-group">
-            <label for="role">Role</label>
-            <input type="text" name="role" id="role" class="form-control" value="{{ $user->role }}" required>
-        </div>
-        <div class="form-group">
-            <label for="NI">NI</label>
-            <input type="number" name="NI" id="NI" class="form-control" value="{{ $user->NI }}" required>
+            <label for="NIA">NIA</label>
+            <input type="number" name="NIA" id="NIA" class="form-control" value="{{ $user->NID }}" required>
         </div>
         <div class="form-group">
             <label for="email">Email</label>
