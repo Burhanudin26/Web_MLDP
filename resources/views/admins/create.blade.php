@@ -2,7 +2,7 @@
 
 @section('main')
 <div class="container">
-    <h1>Create User</h1>
+    <h1>Create Admin</h1>
     
     @if($errors->any())
         <div class="alert alert-danger">
@@ -32,7 +32,7 @@
             <label for="password">Password</label>
             <input type="password" name="password" id="password" class="form-control" required>
         </div>
-        <button type="submit" class="btn btn-primary">Create User</button>
+        <button type="submit" class="btn btn-primary">Create Admin</button>
     </form>
 </div>
 @endsection

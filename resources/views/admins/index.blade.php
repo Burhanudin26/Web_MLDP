@@ -3,7 +3,7 @@
 @section('main')
 <div class="container">
     <h1>Users</h1>
-    <a href="{{ route('admins.create') }}" class="btn btn-success">Add User</a>
+    <a href="{{ route('admins.create') }}" class="btn btn-success">Add Admin</a>
     @if(session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
@@ -37,7 +37,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="5">No admins found.</td>
+                    <td colspan="4">No admins found.</td>
                 </tr>
             @endforelse
         </tbody>

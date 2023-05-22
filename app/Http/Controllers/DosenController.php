@@ -40,12 +40,12 @@ class DosenController extends Controller
 
     public function show(Dosen $dosen)
     {
-        return view('dosens.show', compact('user'));
+        return view('dosens.show', compact('dosen'));
     }
 
     public function edit(Dosen $dosen)
     {
-        return view('dosens.edit', compact('user'));
+        return view('dosens.edit', compact('dosen'));
     }
 
     public function update(Request $request, Dosen $dosen)

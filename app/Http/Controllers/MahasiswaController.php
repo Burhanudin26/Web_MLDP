@@ -27,7 +27,7 @@ class MahasiswaController extends Controller
             'NIM' => 'required|unique:mahasiswas',
             'email' => 'required|unique:mahasiswas',
             'password' => 'required',
-            'profile_photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048',        ]);
+            'profile_photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048',]);
     
         // Hash the password
         $validatedData['password'] = Hash::make($validatedData['password']);
@@ -40,12 +40,12 @@ class MahasiswaController extends Controller
 
     public function show(mahasiswa $mahasiswa)
     {
-        return view('mahasiswas.show', compact('user'));
+        return view('mahasiswas.show', compact('mahasiswa'));
     }
 
     public function edit(mahasiswa $mahasiswa)
     {
-        return view('mahasiswas.edit', compact('user'));
+        return view('mahasiswas.edit', compact('mahasiswa'));
     }
 
     public function update(Request $request, mahasiswa $mahasiswa)
