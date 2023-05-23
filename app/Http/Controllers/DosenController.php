@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\dosen;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Crypt;
 
 class DosenController extends Controller
 {
@@ -27,10 +27,10 @@ class DosenController extends Controller
             'NID' => 'required|unique:dosens',
             'email' => 'required|unique:dosens',
             'password' => 'required',
-            'profile_photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048',        ]);
+                  ]);
     
-        // Hash the password
-        $validatedData['password'] = Hash::make($validatedData['password']);
+        // Encrypt the password
+        $validatedData['password'] = Crypt::encryptString($validatedData['password']);
     
         Dosen::create($validatedData);
     
@@ -45,6 +45,7 @@ class DosenController extends Controller
 
     public function edit(Dosen $dosen)
     {
+        $dosen->password = Crypt::decryptString($dosen->password);
         return view('dosens.edit', compact('dosen'));
     }
 
@@ -55,8 +56,11 @@ class DosenController extends Controller
             'NID' => 'required|unique:dosens,NID,' . $dosen->NID,
             'email' => 'required|unique:dosens,email,' . $dosen->NID,
             'password' => 'required'. $dosen->NID,
-            'profile_photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048'. $dosen->NID,
+            
         ]);
+        // Encrypt the new password
+        $validatedData['password'] = Crypt::encryptString($validatedData['password']);
+
 
         $dosen->update($validatedData);
 

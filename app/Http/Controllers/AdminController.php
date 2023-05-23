@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\admin;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Crypt;
 
 class AdminController extends Controller
 {
@@ -27,10 +27,10 @@ class AdminController extends Controller
             'NIA' => 'required|unique:admins',
             'email' => 'required|unique:admins',
             'password' => 'required',
-            'profile_photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048',        ]);
+             ]);
     
-        // Hash the password
-        $validatedData['password'] = Hash::make($validatedData['password']);
+        // Encrypt the password
+        $validatedData['password'] = Crypt::encryptString($validatedData['password']);
     
         Admin::create($validatedData);
     
@@ -45,6 +45,7 @@ class AdminController extends Controller
 
     public function edit(Admin $admin)
     {
+        $admin->password = Crypt::decryptString($admin->password);
         return view('admins.edit', compact('admin'));
     }
 
@@ -55,8 +56,10 @@ class AdminController extends Controller
             'NIA' => 'required|unique:admins,NIA,' . $admin->NIA,
             'email' => 'required|unique:admins,email,' . $admin->NIA,
             'password' => 'required'. $admin->NIA,
-            'profile_photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048'. $admin->NIA,
+            
         ]);
+        // Encrypt the new password
+        $validatedData['password'] = Crypt::encryptString($validatedData['password']);
 
         $admin->update($validatedData);
 

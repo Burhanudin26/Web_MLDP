@@ -26,7 +26,7 @@ class UserController extends Controller
             'NI' => 'required|unique:users',
             'email' => 'required|unique:users',
             'password' => 'required',
-            'profile_photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048',        ]);
+                    ]);
     
         // Hash the password
         $validatedData['password'] = Hash::make($validatedData['password']);
@@ -55,7 +55,7 @@ class UserController extends Controller
             'NI' => 'required|unique:users,NI,' . $user->NI,
             'email' => 'required|unique:users,email,' . $user->NI,
             'password' => 'required'. $user->NI,
-            'profile_photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048'. $user->NI,
+            
         ]);
 
         $user->update($validatedData);

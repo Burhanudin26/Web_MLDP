@@ -1,5 +1,6 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AttendanceController;
@@ -7,7 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\DosenController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
 
 Route::get('/users', [UserController::class, 'index'])->name('users.index');
 Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
@@ -49,31 +50,13 @@ Route::get('/attendance/{attendance}/edit', [AttendanceController::class, 'edit'
 Route::put('/attendance/{attendance}', [AttendanceController::class, 'update'])->name('attendance.update');
 Route::delete('/attendance/{attendance}', [AttendanceController::class, 'destroy'])->name('attendance.destroy');
 
-
-
-Route::get('/', function(){return view('guest');});
+Route::get('/', function(){return view('demo');});
 Route::get('/mahasiswa', function(){return view('mahasiswa');});
+Route::get('/admin', function(){return view('admin');});
+Route::get('/dosen', function(){return view('dosen');});
 Route::get('/bar', function(){return view('bar');});
-Route::get('/main', function(){return view('main');});
-Route::get('/map', function () {return view('map');});
-Route::get('/distance', function () {return view('distance');});
-Route::get('/profil', function () {return view('Profil');});
 
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [LoginController::class, 'login']);
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-// Display login form
-// Route::get('/login', 'AuthController@loginForm');
-Route::post('/login', [AuthController::class, 'loginForm']);
-// Handle login request
-// Route::post('/login', 'AuthController@login');
-Route::post('/login', [AuthController::class, 'login']);
-// Route::get('/login', [AuthController::class, 'loginForm']);
-// Route::post('/login', [AuthController::class, 'login']);
-
-Auth::routes();
-
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-// Route::get('/login', function(){return view('auth.login');});
-
-// Route::get('/dosen', [HomeController::class, 'index'])->name('dosen');
-// Route::get('/mahasiswa', [HomeController::class, 'index'])->name('mahasiswa');
-// Route::get('/admin', [HomeController::class, 'index'])->name('admin');

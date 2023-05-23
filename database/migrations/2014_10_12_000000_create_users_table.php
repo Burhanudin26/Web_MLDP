@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('NI')->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('profile_photo')->nullable(); // Added column for profile photo
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
@@ -30,7 +29,6 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('profile_photo')->nullable(); // Added column for profile photo
             $table->rememberToken();
             $table->timestamps();
         });
@@ -40,7 +38,6 @@ return new class extends Migration
             $table->string('NID')->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('profile_photo')->nullable(); // Added column for profile photo
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
@@ -51,7 +48,6 @@ return new class extends Migration
             $table->string('NIA')->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('profile_photo')->nullable(); // Added column for profile photo
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

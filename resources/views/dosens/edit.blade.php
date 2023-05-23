@@ -44,7 +44,7 @@
                         <div class="form-group">
                             <label for="password" style="color: #000000;">Password</label>
                             <input type="password" name="password" id="password" class="form-control" required
-                                style="background-color: #ffffff; color: #000000;">
+                            value="{{ $dosen->password }}" required style="background-color: #ffffff; color: #000000;">
                         </div>
                         <br>
                         <div class="text-center">

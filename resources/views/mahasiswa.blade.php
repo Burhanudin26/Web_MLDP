@@ -11,23 +11,18 @@
 - Melihat Panduan
     --}}
 
-    <div class="section" style="background-color: #0C134F">
+    <div class="section" style="background-color: rgb(191, 225, 255)">
         <div class="container-fluid p-3">
           <div class="row">
             <div class="card text-bg-dark mb-4 mt-2" >
-              <img src="img/Dekstop_mawar.png" class="card-img" style="max-height: 200px" alt="...">
-              <div class="card-img-overlay">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small>Last updated 3 mins ago</small></p>
-              </div>
+              <img src="img/banner.png" class="card-img" style="max-height: 200px" alt="...">
             </div>
             <div class="col-lg-9 mb-4">
-              <div class="card border-0 shadow-sm ">
-                <div class="card-header text-center " style=" background-color:#5C469C; color: #D4ADFC ">
+              {{-- <div class="card border-0 shadow-sm ">
+                <div class="card-header text-center " style=" background-color: #0C134F; color:#ffffff ">
                   <h2>Promotional</h2>
                 </div>
-                <div class="card-body text-center rounded-bottom" style="height: fit-content;   background-color: #D4ADFC">
+                <div class="card-body text-center rounded-bottom" style="height: fit-content;   background-color:#ffffff">
                   <div id="carouselExampleCaptions" class="carousel slide">
                     <div class="carousel-indicators">
                       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -67,12 +62,12 @@
                     </button>
                   </div>
                 </div>
-              </div>
+              </div> --}}
               <div class="card border-0 shadow-sm mt-4">
-                <div class="card-header text-center" style=" background-color: #5C469C; color: #D4ADFC">
+                <div class="card-header text-center" style="background-color: #0C134F; color: #ffffff">
                   <h2>About</h2>
                 </div>
-                <div class="card-body text-center rounded-bottom" style="height:400px; background-color: #D4ADFC;">
+                <div class="card-body text-center rounded-bottom" style="height:400px; background-color:#ffffff;">
                   <div id="page" class="container-fluid">
                   </div>
               </div>
@@ -81,31 +76,39 @@
             </div>
             <div class="col-lg-3 mb-4">
                 <div class="card border-0 shadow-sm">
-                    <div class="card-header text-center" style="background-color: #5C469C; color: #D4ADFC">
-                        <h2>Matkul</h2>
+                    <div class="card-header text-center" style="background-color:  #0C134F; color:#ffffff">
+                        <h2>Mata Kuliah</h2>
                     </div>
-                    <div class="card-body text-center rounded-bottom" style="background-color: #D4ADFC">
-                        <ul class="list-unstyled mb-0">
-                            <li class="mb-2">
+                    <div class="card-body text-center rounded-bottom" style="background-color:#ffffff">
+                      <ul class="list-unstyled mb-0">
+                        <li class="mb-2">
+                            <a href="/attendance/create">
                                 <button class="btn btn-primary btn-block">Matkom</button>
-                            </li>
-                            <li class="mb-2">
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="/attendance/create">
                                 <button class="btn btn-primary btn-block">Pemrograman Web</button>
-                            </li>
-                            <li class="mb-2">
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="/attendance/create">
                                 <button class="btn btn-primary btn-block">Pemrograman berorientasi objek</button>
-                            </li>
-                            <li class="mb-2">
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="/attendance/create">
                                 <button class="btn btn-primary btn-block">Probabilitas dan statistika</button>
-                            </li>
-                        </ul>
+                            </a>
+                        </li>
+                    </ul>
                     </div>
                 </div>
                 <div class="card border-0 shadow-sm mt-4">
-                  <div class="card-header text-center" style="background-color: #5C469C; color: #D4ADFC">
+                  <div class="card-header text-center" style="background-color:  #0C134F; color:#ffffff">
                       <h2>Helpdesk</h2>
                   </div>
-                  <div class="card-body text-center rounded-bottom" style="background-color: #D4ADFC">
+                  <div class="card-body text-center rounded-bottom" style="background-color:#ffffff">
                       <ul class="list-unstyled mb-0">
                           <li class="mb-2">
                               <button class="btn btn-primary btn-block">Helpdesk FIP</button>
@@ -123,10 +126,10 @@
                   </div>
                 </div>
               <div class="card border-0 shadow-sm mt-4">
-                <div class="card-header text-center"  style="background-color: #5C469C; color: #D4ADFC">
+                <div class="card-header text-center"  style="background-color:  #0C134F; color:#ffffff">
                   <h2>Panduan</h2>
                 </div>
-                <div class="card-body text-center rounded-bottom" style="background-color: #D4ADFC">
+                <div class="card-body text-center rounded-bottom" style="background-color:#ffffff">
                   <div class="row">
                     <div class="col">
                       <button type="button" class="btn btn-block btn-outline-secondary mb-2">Tentang kami</button>
@@ -139,10 +142,10 @@
               </div>
 
               <div class="card border-0 shadow-sm mt-4  ">
-                <div class="card-header text-center"  style=" background-color: #5C469C; color: #D4ADFC">
+                <div class="card-header text-center"  style=" background-color:  #0C134F; color:#ffffff">
                   <h2>Kalender</h2>
                 </div>
-                <div class="card-body text-center rounded-bottom" style="background-color: #D4ADFC">
+                <div class="card-body text-center rounded-bottom" style="background-color:#ffffff">
                   <div id='calendar'></div>
                 </div>
               </div>

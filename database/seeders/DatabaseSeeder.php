@@ -1,7 +1,7 @@
 <?php
+
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Crypt;
 use App\Models\User;
 use App\Models\Mahasiswa;
 use App\Models\Dosen;
@@ -22,31 +22,39 @@ class DatabaseSeeder extends Seeder
             'role' => 'user',
             'NI' => '123456789',
             'email' => 'user@example.com',
-            'password' => 'password',
+            'email_verified_at' => now(),
+            'password' => Crypt::encryptString('password'),
+            'remember_token' => Str::random(10),
         ]);
 
         // Create a Mahasiswa
         $mahasiswa = Mahasiswa::create([
-            'name' => 'Jane Smith',
-            'NIM' => '987654321',
+            'name' => 'Mahasiswa',
+            'NIM' => '135798642',
             'email' => 'mahasiswa@example.com',
-            'password' => 'password',
+            'email_verified_at' => now(),
+            'password' => Crypt::encryptString('password'),
+            'remember_token' => Str::random(10),
         ]);
 
         // Create a Dosen
         $dosen = Dosen::create([
-            'name' => 'David Johnson',
-            'NID' => '246813579',
+            'name' => 'Dosen',
+            'NID' => '987654321',
             'email' => 'dosen@example.com',
-            'password' => 'password',
+            'email_verified_at' => now(),
+            'password' => Crypt::encryptString('password'),
+            'remember_token' => Str::random(10),
         ]);
 
         // Create an Admin
         $admin = Admin::create([
-            'name' => 'Admin Doe',
-            'NIA' => '135792468',
+            'name' => 'Admin',
+            'NIA' => '123456789',
             'email' => 'admin@example.com',
-            'password' => 'password',
+            'email_verified_at' => now(),
+            'password' => Crypt::encryptString('password'),
+            'remember_token' => Str::random(10),
         ]);
 
         // Output the created users
@@ -56,5 +64,3 @@ class DatabaseSeeder extends Seeder
         $this->command->info('Admin created: ' . $admin->name);
     }
 }
-
-?>

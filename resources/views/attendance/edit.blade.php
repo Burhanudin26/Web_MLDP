@@ -56,6 +56,12 @@
                       Sick
                     </label>
                   </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="status" id="invalid" value="Invalid" required>
+                    <label class="form-check-label" for="invalid">
+                      Invalid
+                    </label>
+                  </div>
             </div>
             
             <button type="submit" class="btn btn-primary mt-3">Update</button>
