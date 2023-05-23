@@ -52,10 +52,10 @@ class DosenController extends Controller
     public function update(Request $request, Dosen $dosen)
     {
         $validatedData = $request->validate([
-            'name' => 'required'. $dosen->NID,
+            'name' => 'required',
             'NID' => 'required|unique:dosens,NID,' . $dosen->NID,
             'email' => 'required|unique:dosens,email,' . $dosen->NID,
-            'password' => 'required'. $dosen->NID,
+            'password' => 'required',
             
         ]);
         // Encrypt the new password

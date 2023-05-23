@@ -52,10 +52,10 @@ class AdminController extends Controller
     public function update(Request $request, Admin $admin)
     {
         $validatedData = $request->validate([
-            'name' => 'required'. $admin->NIA,
+            'name' => 'required',
             'NIA' => 'required|unique:admins,NIA,' . $admin->NIA,
             'email' => 'required|unique:admins,email,' . $admin->NIA,
-            'password' => 'required'. $admin->NIA,
+            'password' => 'required',
             
         ]);
         // Encrypt the new password
