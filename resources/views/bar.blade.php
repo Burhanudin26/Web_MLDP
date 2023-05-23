@@ -22,7 +22,7 @@
 </div>
   <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
     <div class="offcanvas-header" style="background-color: #0C134F; color:#ffffff">
-      <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Dashboard</h5>
+      <a href="/dashboard"><h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Dashboard</h5></a>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body" style="background-color: #ffffff">
@@ -31,22 +31,27 @@
     </div>
   </div>
     <main>
-        <nav  class="navbar navbar-expand-md navbar-light shadow-md sticky-top" style="background-color:#1D267D">
+        <nav  class="navbar navbar-expand-md navbar-light shadow-md sticky-top" style="background-color:#1D267D; max-height:50px">
                 <div class="container-fluid">
                     <a href="#" class="nav-link text-white mr-4"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                         <i class="fs-5 fa fa-house"></i>
                     </a>
-                    <a class="navbar-brand text-white" href="#">  <img src="mldp_white.png" alt="" srcset=""></a>
-                <a class="navbar-brand text-white" href="#">Profile</a>
+                    <a href=""></a>
+                    <a href=""></a>
+                    {{-- <a class="navbar-link text-white" style="scale: 7%; max-width:80px" href="/">  <img src="img/mldp_white.png" alt="" srcset=""></a> --}}
+                    <a href="{{ route('logout') }}" class="nav-link text-white" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                      Logout
+                  </a>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
                 @if (Auth::check())
-                <div>
                     <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         Logout
                     </a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
-                </div>
                 @else
                     <div>
                         <!-- Right Side Of Navbar -->
@@ -54,7 +59,11 @@
                       <!-- Authentication Links -->
                       @guest
                       @else
-                          <li class="nav-item dropdown">
+                      <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit">Logout</button>
+                      </form>
+                          {{-- <li class="nav-item dropdown">
                               <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                   {{ Auth::user()->name }}
                               </a>
@@ -70,7 +79,7 @@
                                       @csrf
                                   </form>
                               </div>
-                          </li>
+                          </li> --}}
                       @endguest
                   </ul>
                     </div>

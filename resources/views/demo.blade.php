@@ -9,7 +9,7 @@
             <div class="col mb-4">
                 <div class="card border-0 shadow-sm">
                     <div class="card-header text-center" style="background-color:#0C134F; color: #ffffff">
-                        <h2>Demo Menu</h2>
+                        <h2>Dashboard</h2>
                     </div>
                     <div class="card-body rounded-2" style="height: fit-content; background-color: #ffffff">
                         <div id="carouselExampleCaptions" class="carousel slide">
