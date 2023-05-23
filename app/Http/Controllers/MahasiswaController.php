@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Mahasiswa;
+use App\Models\mahasiswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 
