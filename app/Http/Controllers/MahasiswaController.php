@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 
 class MahasiswaController extends Controller
 {
+
     public function index()
     {
         $mahasiswas = mahasiswa::all();

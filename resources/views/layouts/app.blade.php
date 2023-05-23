@@ -12,7 +12,8 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href={{url("css/bootstrap.min.css")  }}>
+    <link rel="stylesheet" href={{ url("fontawesome-free-6.4.0-web/css/all.min.css") }}>
 
     <!-- Scripts -->
     {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
@@ -38,6 +39,17 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @guest
+                            @if (Route::has('login'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                </li>
+                            @endif
+
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                            @endif
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -66,6 +78,23 @@
             @yield('content')
         </main>
     </div>
-    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src={{ url("js/bootstrap.bundle.min.js") }}></script>
+    <script src={{ url("fontawesome-free-6.4.0-web/js/all.min.js") }}></script>
+    <script src={{ url('https://cdn.jsdelivr.net/npm/fullcalendar@6.1.7/index.global.min.js') }}></script>
+    <script>
+    
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth'
+        });
+        calendar.render();
+      });
+      document.getElementById('login-link').addEventListener('click', function() {
+                    document.getElementById('login-form').style.display = 'block';
+                });
+    
+    </script>
+    
 </body>
 </html>

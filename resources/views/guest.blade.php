@@ -20,12 +20,12 @@
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="NID" class="col-md-4 col-form-label text-md-end">{{ __('NID') }}</label>
+                            <label for="NI" class="col-md-4 col-form-label text-md-end">NIM/NID/NIA</label>
 
                             <div class="col-md-6">
-                                <input id="NID" type="NID" class="form-control @error('NID') is-invalid @enderror" name="NID" value="{{ old('NID') }}" required autocomplete="NID" autofocus>
+                                <input id="NI" type="number" class="form-control @error('NI') is-invalid @enderror" name="NI" value="{{ old('NI') }}" required autocomplete="NI" autofocus>
 
-                                @error('NID')
+                                @error('NI')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

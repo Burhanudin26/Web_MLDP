@@ -1,38 +1,50 @@
 @extends('bar')
 
 @section('main')
-<div class="container">
-    <h1>Create Dosen</h1>
-    
-    @if($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
+<div class="section" style="background-color: rgb(191, 225, 255); min-height: 800px;">
+    <div class="container-fluid p-3">
+        <div class="row">
+            <div class="col mb-4">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header text-center" style="background-color: #0C134F; color: #ffffff">
+                        <h1>Create Dosen</h1>
+                    </div>
+                    <div class="card-body" style="color: #000000;">
+                        @if($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif
+        
+                        <form action="{{ route('dosens.store') }}" method="POST">
+                            @csrf
+                            <div class="form-group">
+                                <label for="NID">NID</label>
+                                <input type="number" name="NID" id="NID" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" name="name" id="name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" name="email" id="email" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" name="password" id="password" class="form-control" required>
+                            </div>
+                            <br>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-    @endif
-    
-    <form action="{{ route('dosens.store') }}" method="POST">
-        @csrf
-        <div class="form-group">
-            <label for="NID">NID</label>
-            <input type="number" name="NID" id="NID" class="form-control" required>
-        </div>
-        <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" name="name" id="name" class="form-control" required>
-        </div>
-                <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email" class="form-control" required>
-        </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" class="form-control" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Create User</button>
-    </form>
+    </div>
 </div>
 @endsection

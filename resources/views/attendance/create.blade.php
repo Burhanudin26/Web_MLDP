@@ -1,59 +1,76 @@
-
 @extends('bar')
 
 @section('main')
 
-    <div class="container">
-        <h2>Create Attendance</h2>
-        <form action="{{ route('attendance.store') }}" method="POST">
-            @csrf
-            <div class="form-group">
+<div class="frame" style="background-color: rgb(191, 225, 255); min-height: 800px;">
+  <div class="container-fluid p-3">
+    <div class="row">
+      <div class="col mb-4">
+        <div class="card border-0 shadow-sm">
+          <div class="card-header text-center" style="background-color: #0C134F; color: #ffffff; mt-3">
+            <h2>Create Attendance</h2>
+          </div>
+          <div class="card-body" style="color: #000000;">
+            <form action="{{ route('attendance.store') }}" method="POST">
+              @csrf
+              <div class="form-group">
                 <label for="name">Name:</label>
                 <input type="text" class="form-control" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-              <label for="status">Status:</label>
-              <div class="form-check">
-                  <input class="form-check-input" type="radio" name="status" id="present" value="Present" required>
-                  <label class="form-check-label" for="present">
+              </div>
+              <br>
+              <div class="form-group">
+                <label for="status">Status:</label>
+                <div class="radio-group">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="status" id="present" value="Present" required>
+                    <label class="form-check-label" for="present">
                       Present
-                  </label>
-              </div>
-              <div class="form-check">
-                  <input class="form-check-input" type="radio" name="status" id="absent" value="Absent" required>
-                  <label class="form-check-label" for="absent">
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="status" id="absent" value="Absent" required>
+                    <label class="form-check-label" for="absent">
                       Absent
-                  </label>
-              </div>
-              <div class="form-check">
-                  <input class="form-check-input" type="radio" name="status" id="excuse" value="Excuse" required>
-                  <label class="form-check-label" for="excuse">
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="status" id="excuse" value="Excuse" required>
+                    <label class="form-check-label" for="excuse">
                       Excuse
-                  </label>
-              </div>
-              <div class="form-check">
-                  <input class="form-check-input" type="radio" name="status" id="sick" value="Sick" required>
-                  <label class="form-check-label" for="sick">
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="status" id="sick" value="Sick" required>
+                    <label class="form-check-label" for="sick">
                       Sick
-                  </label>
+                    </label>
+                  </div>
+                </div>
               </div>
+
+              <div class="form-group">
+                <input type="hidden" class="form-control" id="latitude" name="latitude" required>
+                <input type="hidden" class="form-control" id="longitude" name="longitude" required>
+                <input type="hidden" id="distance" name="distance">
+              </div>
+
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary mt-3">Submit</button>
+              </div>
+            </form>
           </div>
-          
-            <input type="hidden" class="form-control" id="latitude" name="latitude" required>
-            <input type="hidden" class="form-control" id="longitude" name="longitude" required>
-            <input type="hidden" id="distance" name="distance">
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-    </div>
-
-    <!-- Modal -->
-    <div id="errorModal" class="modal">
-      <div class="modal-content">
-          <span class="close">&times;</span>
-          <p id="errorMessage"></p>
+          <!-- Modal -->
+          <div id="errorModal" class="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <p id="errorMessage"></p>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
   </div>
-
+</div>
   <script>
       document.addEventListener("DOMContentLoaded", function() {
     // Check if the Geolocation API is supported
