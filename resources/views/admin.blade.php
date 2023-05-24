@@ -1,53 +1,62 @@
-{{-- 
-    Admin bisa :
-- Membuat, Melihat, Mengupdate, dan Menghapus Akun (self)
-- Membuat, Melihat, Mengupdate, dan Menghapus Banner
-- Membuat, Melihat, Mengupdate, dan Menghapus Promotional
-- Membuat, Melihat, Mengupdate, dan Menghapus About
-- Membuat, Melihat, Mengupdate, dan Menghapus Matkul Mahasiswa dan Dosen
-- Membuat, Melihat, Mengupdate, dan Menghapus Presensi
-- Membuat, Melihat, Mengupdate, dan Menghapus Tanggal
-- Membuat, Melihat, Mengupdate, dan Menghapus Panduan
-- Membuat, Melihat, Mengupdate, dan Menghapus Akun Mahasiswa dan Akun Dosen
-    --}}
     @extends('bar')
 
     @section('main')
-        <div class="container-fluid">
+    <div class="section" style="background-color: rgb(191, 225, 255)">
+        <div class="container-fluid" style="min-height: 800px">
         <div class="row">
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="card-body ">
-                        <h5 class="card-title">Mahasiswa</h5>
-                        <a href="/mahasiswas/" class="btn btn-primary">Go to Mahasiswa</a>
+            <center>
+                <div class="col-4">
+                    <div class="card border-0 shadow-sm mt-4">
+                      <div class="card-header text-center" style="background-color: #0C134F; color: #ffffff">
+                        <h2>Mahasiswa</h2>
+                      </div>
+                      <div class="card-body text-center rounded-bottom" style=" background-color:#ffffff;">
+                        <div id="page" class="container-fluid">
+                            <a href="/mahasiswas/" class="btn btn-primary" style="min-width: 300px">Go to Mahasiswa</a>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Dosen</h5>
-                        <a href="/dosens/" class="btn btn-primary">Go to Dosen</a>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Admin</h5>
-                        <a href="/admins/" class="btn btn-primary">Go to Admin</a>
+                  </div>
+                <div class="col-4">
+                  <div class="card border-0 shadow-sm mt-4 ">
+                    <div class="card-header text-center" style="background-color: #0C134F; color: #ffffff">
+                      <h2>Dosen</h2>
                     </div>
+                    <div class="card-body text-center rounded-bottom" style=" background-color:#ffffff;">
+                      <div id="page" class="container-fluid">
+                          <a href="/dosens/" class="btn btn-primary" style="min-width: 300px">Go to Dosen</a>
+                      </div>
+                  </div>
+                  </div>
                 </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Attendance</h5>
-                        <a href="/attendance/" class="btn btn-primary">Go to Attendance</a>
+                <div class="col-4">
+                <div class="card border-0 shadow-sm mt-4">
+                    <div class="card-header text-center" style="background-color: #0C134F; color: #ffffff">
+                      <h2>Admin</h2>
                     </div>
+                    <div class="card-body text-center rounded-bottom" style=" background-color:#ffffff;">
+                      <div id="page" class="container-fluid">
+                          <a href="/admins/" class="btn btn-primary" style="min-width: 300px">Go to Admin</a>
+                      </div>
+                  </div>
+                  </div>
                 </div>
-            </div>
+                <div class="col-4">
+                <div class="card border-0 shadow-sm mt-4">
+                    <div class="card-header text-center" style="background-color: #0C134F; color: #ffffff">
+                      <h2>Attendance</h2>
+                    </div>
+                    <div class="card-body text-center rounded-bottom" style=" background-color:#ffffff;">
+                      <div id="page" class="container-fluid">
+                          <a href="/attendance/" class="btn btn-primary" style="min-width: 300px">Go to Attendance</a>
+                      </div>
+                  </div>
+                  </div>
+                </div>
+            </center>
+            
         </div>
+    </div>
     </div>
     @endsection
     

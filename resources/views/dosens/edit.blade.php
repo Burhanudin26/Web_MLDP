@@ -25,7 +25,7 @@
                         @method('PUT')
                         <div class="form-group">
                             <label for="NID" class="mt-3" style="color: #000000;">NID</label>
-                            <input type="number" name="NID" id="NID" class="form-control"
+                            <input type="text" name="NID" id="NID" class="form-control"
                                 value="{{ $dosen->NID }}" required style="background-color: #ffffff; color: #000000;">
                         </div>
                         <br>

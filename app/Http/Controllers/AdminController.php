@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\admin;
+use App\Models\Admin;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -29,8 +29,8 @@ class AdminController extends Controller
             'password' => 'required',
              ]);
     
-        // Encrypt the password
-        $validatedData['password'] = Crypt::encryptString($validatedData['password']);
+        // Hash the password
+        $validatedData['password'] = Hash::make($validatedData['password']);
     
         Admin::create($validatedData);
     
@@ -45,26 +45,32 @@ class AdminController extends Controller
 
     public function edit(Admin $admin)
     {
-        $admin->password = Crypt::decryptString($admin->password);
         return view('admins.edit', compact('admin'));
     }
 
-    public function update(Request $request, Admin $admin)
-    {
-        $validatedData = $request->validate([
-            'name' => 'required',
-            'NIA' => 'required|unique:admins,NIA,' . $admin->NIA,
-            'email' => 'required|unique:admins,email,' . $admin->NIA,
-            'password' => 'required',
-            
-        ]);
-        // Encrypt the new password
-        $validatedData['password'] = Crypt::encryptString($validatedData['password']);
+    public function update(Request $request, admin $admin)
+{
+    $validatedData = $request->validate([
+        'name' => 'required'.$admin->NIA,
+        'NIA' => 'required|unique:dosens,NIA' .$admin->NIA,
+        'email' => 'required|unique:dosens,email' .$admin->NIA,
+        'password' => '' // Remove the 'required' rule
+    ]);
 
-        $admin->update($validatedData);
-
-        return redirect()->route('admins.index')->with('success', 'Admin updated successfully.');
+    // Check if a new password is provided
+    if ($request->filled('password')) {
+        // Hash the new password
+        $validatedData['password'] = Hash::make($validatedData['password']);
+    } else {
+        // If no new password is provided, remove it from the validated data
+        unset($validatedData['password']);
     }
+
+    $admin->update($validatedData);
+
+    return redirect()->route('dosens.index')->with('success', 'Dosen updated successfully.');
+}
+
 
     public function destroy(Admin $admin)
     {

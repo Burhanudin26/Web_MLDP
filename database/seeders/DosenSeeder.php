@@ -5,8 +5,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 class DosenSeeder extends Seeder
@@ -19,10 +19,10 @@ class DosenSeeder extends Seeder
        // Create a Dosen
        DB::table('dosens')->insert([
         'name' => 'Dosen',
-        'NID' => '987654321',
+        'NID' => 'NID987654321',
         'email' => 'dosen@example.com',
         'email_verified_at' => now(),
-        'password' => Crypt::encryptString('password'),
+        'password' => Hash::make('password'),
         'remember_token' => Str::random(10),
     ]);
     }

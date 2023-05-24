@@ -25,7 +25,7 @@
                         @method('PUT')
                         <div class="form-group">
                             <label for="NIA" class="mt-3" style="color: #000000;">NIA</label>
-                            <input type="number" name="NIA" id="NIA" class="form-control"
+                            <input type="text" name="NIA" id="NIA" class="form-control"
                                 value="{{ $admin->NIA }}" required style="background-color: #ffffff; color: #000000;">
                         </div>
                         <br>

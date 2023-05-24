@@ -7,6 +7,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 class MahasiswaSeeder extends Seeder
 {
@@ -18,10 +19,10 @@ class MahasiswaSeeder extends Seeder
        // Create a Mahasiswa
        DB::table('mahasiswas')->insert([
         'name' => 'Mahasiswa',
-        'NIM' => '135798642',
+        'NIM' => 'NIM135798642',
         'email' => 'mahasiswa@example.com',
         'email_verified_at' => now(),
-        'password' => Crypt::encryptString('password'),
+        'password' => Hash::make('password'),        
         'remember_token' => Str::random(10),
     ]);
 

@@ -52,8 +52,8 @@ class UserController extends Controller
         $validatedData = $request->validate([
             'name' => 'required'. $user->NI,
             'role' => 'required' . $user->NI,
-            'NI' => 'required|unique:users,NI,' . $user->NI,
-            'email' => 'required|unique:users,email,' . $user->NI,
+            'NI' => 'required|unique:users,NI' . $user->NI,
+            'email' => 'required|unique:users,email' . $user->NI,
             'password' => 'required'. $user->NI,
             
         ]);

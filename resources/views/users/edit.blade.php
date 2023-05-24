@@ -27,7 +27,7 @@
         </div>
         <div class="form-group">
             <label for="NI">NI</label>
-            <input type="number" name="NI" id="NI" class="form-control" value="{{ $user->NI }}" required>
+            <input type="text" name="NI" id="NI" class="form-control" value="{{ $user->NI }}" required>
         </div>
         <div class="form-group">
             <label for="email">Email</label>

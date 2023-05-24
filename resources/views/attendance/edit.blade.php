@@ -1,4 +1,4 @@
-<!-- resources/views/attendance/edit.blade.php -->
+
 @extends('bar')
 
 @section('main')
@@ -8,7 +8,7 @@
             <div class="col-lg-6">
                 <div class="card border-0 shadow-sm p-4">
                     <div class="card-header text-center" style="background-color: #0C134F; color: #ffffff;">
-                        <h1 style="color: #ffffff;">Edit Attendance</h1>
+                        <h1 style="color: #ffffff;">Edit Dosen</h1>
                     </div>
 
                     @if($errors->any())
@@ -20,52 +20,57 @@
                         </ul>
                     </div>
                     @endif
-
-        <form action="{{ route('attendance.update', $attendance->id) }}" method="POST">
-            @csrf
-            @method('PUT')
-            <br>
-            <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" class="form-control" id="name" name="name" value="{{ $attendance->name }}" required>
+                    <form action="{{ route('attendance.update', $attendance->id) }}" method="POST">
+                      @csrf
+                      @method('PUT')
+                      <br>
+                      <div class="form-group">
+                          <label for="name">Name:</label>
+                          <input type="text" class="form-control" id="name" name="name" value="{{ $attendance->name }}" required>
+                      </div>
+                      <br>
+                      <div class="form-group">
+                          <label>Status:</label><br>
+                          <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="status" id="present" value="Present" required>
+                              <label class="form-check-label" for="present">
+                                Present
+                              </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="status" id="absent" value="Absent" required>
+                              <label class="form-check-label" for="absent">
+                                Absent
+                              </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="status" id="excuse" value="Excuse" required>
+                              <label class="form-check-label" for="excuse">
+                                Excuse
+                              </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="status" id="sick" value="Sick" required>
+                              <label class="form-check-label" for="sick">
+                                Sick
+                              </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="status" id="invalid" value="Invalid" required>
+                              <label class="form-check-label" for="invalid">
+                                Invalid
+                              </label>
+                            </div>
+                      </div>
+              
+                      <div class="text-center">
+                        <button type="submit" class="btn btn-primary"
+                            style="background-color: green; color: #ffffff;">Update</button>
+                    </div>         
+                   </form>
+                </div>
             </div>
-            <br>
-            <div class="form-group">
-                <label>Status:</label><br>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="status" id="present" value="Present" required>
-                    <label class="form-check-label" for="present">
-                      Present
-                    </label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="status" id="absent" value="Absent" required>
-                    <label class="form-check-label" for="absent">
-                      Absent
-                    </label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="status" id="excuse" value="Excuse" required>
-                    <label class="form-check-label" for="excuse">
-                      Excuse
-                    </label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="status" id="sick" value="Sick" required>
-                    <label class="form-check-label" for="sick">
-                      Sick
-                    </label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="status" id="invalid" value="Invalid" required>
-                    <label class="form-check-label" for="invalid">
-                      Invalid
-                    </label>
-                  </div>
-            </div>
-            
-            <button type="submit" class="btn btn-primary mt-3">Update</button>
-            <!-- <button type="button" class="btn btn-danger mt-3" data-toggle="modal" data-target="#deleteModal">Delete</button> -->
-        </form>
+        </div>
     </div>
+</div>
 @endsection

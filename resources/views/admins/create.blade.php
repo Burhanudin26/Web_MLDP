@@ -24,7 +24,7 @@
                             @csrf
                             <div class="form-group">
                                 <label for="NIA">NIA</label>
-                                <input type="number" name="NIA" id="NIA" class="form-control" required>
+                                <input type="text" name="NIA" id="NIA" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label for="name">Name</label>

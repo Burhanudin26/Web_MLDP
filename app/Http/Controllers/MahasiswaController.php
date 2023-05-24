@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\mahasiswa;
+use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Hash;
 
 class MahasiswaController extends Controller
 {
@@ -28,8 +28,8 @@ class MahasiswaController extends Controller
             'password' => 'required',
         ]);
 
-        // Encrypt the password
-        $validatedData['password'] = Crypt::encryptString($validatedData['password']);
+        // Hash the password
+        $validatedData['password'] = Hash::make($validatedData['password']);
 
         Mahasiswa::create($validatedData);
 
@@ -44,26 +44,32 @@ class MahasiswaController extends Controller
     public function edit(Mahasiswa $mahasiswa)
     {
         // Decrypt the password for editing
-        $mahasiswa->password = Crypt::decryptString($mahasiswa->password);
         return view('mahasiswas.edit', compact('mahasiswa'));
     }
 
-    public function update(Request $request, Mahasiswa $mahasiswa)
-    {
-        $validatedData = $request->validate([
-            'name' => 'required',
-            'NIM' => 'required|unique:mahasiswas,NIM,' . $mahasiswa->id,
-            'email' => 'required|unique:mahasiswas,email,' . $mahasiswa->id,
-            'password' => 'required',
-        ]);
+    public function update(Request $request, mahasiswa $mahasiswa)
+{
+    $validatedData = $request->validate([
+        'name' => 'required'.$mahasiswa->NIM,
+        'NIM' => 'required|unique:mahasiswas,NIM' .$mahasiswa->NIM,
+        'email' => 'required|unique:mahasiswas,email' .$mahasiswa->NIM,
+        'password' => '' 
+    ]);
 
-        // Encrypt the new password
-        $validatedData['password'] = Crypt::encryptString($validatedData['password']);
-
-        $mahasiswa->update($validatedData);
-
-        return redirect()->route('mahasiswas.index')->with('success', 'Mahasiswa updated successfully.');
+    // Check if a new password is provided
+    if ($request->filled('password')) {
+        // Hash the new password
+        $validatedData['password'] = Hash::make($validatedData['password']);
+    } else {
+        // If no new password is provided, remove it from the validated data
+        unset($validatedData['password']);
     }
+
+    $mahasiswa->update($validatedData);
+
+    return redirect()->route('mahasiswas.index')->with('success', 'mahasiswa updated successfully.');
+}
+
 
     public function destroy(Mahasiswa $mahasiswa)
     {

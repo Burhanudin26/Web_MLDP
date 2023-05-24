@@ -22,7 +22,7 @@
 </div>
   <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
     <div class="offcanvas-header" style="background-color: #0C134F; color:#ffffff">
-      <a href="/dashboard"><h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Dashboard</h5></a>
+      <a href="#"><h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Dashboard</h5></a>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body" style="background-color: #ffffff">
@@ -32,13 +32,11 @@
   </div>
     <main>
         <nav  class="navbar navbar-expand-md navbar-light shadow-md sticky-top" style="background-color:#1D267D; max-height:50px">
-                <div class="container-fluid">
+                <div class="container-fluid" style="max-height: 50px">
                     <a href="#" class="nav-link text-white mr-4"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                         <i class="fs-5 fa fa-house"></i>
                     </a>
-                    <a href=""></a>
-                    <a href=""></a>
-                    {{-- <a class="navbar-link text-white" style="scale: 7%; max-width:80px" href="/">  <img src="img/mldp_white.png" alt="" srcset=""></a> --}}
+                    <a class="navbar-link text-white" style="scale: 7%; max-width:80px" href="/">  <img src="img/mldp_white.png" alt="" srcset=""></a>
                     <a href="{{ route('logout') }}" class="nav-link text-white" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                       Logout
                   </a>

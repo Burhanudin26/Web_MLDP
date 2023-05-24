@@ -4,8 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 class AdminSeeder extends Seeder
@@ -18,10 +18,10 @@ class AdminSeeder extends Seeder
         // Create an Admin
         DB::table('admins')->insert([
             'name' => 'Admin',
-            'NIA' => '123456789',
+            'NIA' => 'NIA123456789',
             'email' => 'admin@example.com',
             'email_verified_at' => now(),
-            'password' => Crypt::encryptString('password'),
+            'password' => Hash::make('password'),
             'remember_token' => Str::random(10),
         ]);
 

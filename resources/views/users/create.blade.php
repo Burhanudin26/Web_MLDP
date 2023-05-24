@@ -18,7 +18,7 @@
         @csrf
         <div class="form-group">
             <label for="NI">NI</label>
-            <input type="number" name="NI" id="NI" class="form-control" required>
+            <input type="text" name="NI" id="NI" class="form-control" required>
         </div>
         <div class="form-group">
             <label for="name">Name</label>
