@@ -31,7 +31,7 @@
   </div>
     <main>
         <nav  class="navbar navbar-expand-md navbar-light shadow-md sticky-top" style="background-color:#1D267D; max-height:50px">
-                <div class="container-fluid">
+                <div class="container-fluid" style="max-height: 50px">
                   <a class="btn text-white mr-5" href="{{ url()->previous() }}">
                     <i class="fas fa-arrow-left"></i> Back
                   </a>                
