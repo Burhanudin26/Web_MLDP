@@ -19,7 +19,6 @@
     <title>MLDP</title>
 </head>
 <body>
-</div>
   <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
     <div class="offcanvas-header" style="background-color: #0C134F; color:#ffffff">
       <a href="#"><h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Dashboard</h5></a>
@@ -32,18 +31,15 @@
   </div>
     <main>
         <nav  class="navbar navbar-expand-md navbar-light shadow-md sticky-top" style="background-color:#1D267D; max-height:50px">
-                <div class="container-fluid" style="max-height: 50px">
+                <div class="container-fluid">
+                  <a class="btn text-white mr-5" href="{{ url()->previous() }}">
+                    <i class="fas fa-arrow-left"></i> Back
+                  </a>                
                     <a href="#" class="nav-link text-white mr-4"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                         <i class="fs-5 fa fa-house"></i>
                     </a>
-                    <a class="navbar-link text-white" style="scale: 7%; max-width:80px" href="/">  <img src="img/mldp_white.png" alt="" srcset=""></a>
-                    <a href="{{ route('logout') }}" class="nav-link text-white" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                      Logout
-                  </a>
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                </form>
-                @if (Auth::check())
+                    <a class="navbar-link text-white" style="scale: 7%; max-width:80px" href="#">  <img src="img/mldp_white.png" alt="" srcset=""></a>
+                    @if (Auth::check())
                     <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         Logout
                     </a>
@@ -51,37 +47,22 @@
                         @csrf
                     </form>
                 @else
-                    <div>
-                        <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
-                      <!-- Authentication Links -->
-                      @guest
-                      @else
-                      <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <button type="submit">Logout</button>
-                      </form>
-                          {{-- <li class="nav-item dropdown">
-                              <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                  {{ Auth::user()->name }}
-                              </a>
-
-                              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                  <a class="dropdown-item" href="{{ route('logout') }}"
-                                     onclick="event.preventDefault();
-                                                   document.getElementById('logout-form').submit();">
-                                      {{ __('Logout') }}
-                                  </a>
-
-                                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                      @csrf
-                                  </form>
-                              </div>
-                          </li> --}}
-                      @endguest
-                  </ul>
-                    </div>
+                        @guest
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="{{ route('login') }}">Login</a>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit" class="nav-link text-white" style="background: none; border: none; cursor: pointer;">Logout</button>
+                                </form>
+                            </li>
+                        @endguest
+                    </ul>
                 @endif
+                
             </nav>
         </div>
 
@@ -112,5 +93,6 @@
             });
 
 </script>
+
 </body>
 </html>

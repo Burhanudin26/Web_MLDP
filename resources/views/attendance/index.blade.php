@@ -38,7 +38,7 @@
                                             <td>{{ $attendance->status }}</td>
                                             <td>{{ $attendance->latitude }}</td>
                                             <td>{{ $attendance->longitude }}</td>
-                                            <td>{{ $attendance->distance }}</td>
+                                            <td>{{ $attendance->distance }} km</td>
                                             <td>
                                                 <a href="{{ route('attendance.show', $attendance) }}" class="btn btn-primary btn-sm">View</a>
                                                 <a href="{{ route('attendance.edit', $attendance) }}" class="btn btn-secondary btn-sm">Edit</a>

@@ -51,14 +51,29 @@ Route::put('/attendance/{attendance}', [AttendanceController::class, 'update'])-
 Route::delete('/attendance/{attendance}', [AttendanceController::class, 'destroy'])->name('attendance.destroy');
 
 Route::get('/dashboard', function(){return view('demo');});
-Route::get('/mahasiswa', function(){return view('mahasiswa');});
-Route::get('/admin', function(){return view('admin');});
-Route::get('/dosen', function(){return view('dosen');});
-Route::get('/bar', function(){return view('bar');});
+Route::middleware(['role:mahasiswa'])->group(function () {
+    Route::get('/mahasiswa', function () {return view('mahasiswa');})->name('mahasiswa');
+});
+
+Route::middleware(['role:admin'])->group(function () {
+    Route::get('/admin', function () {return view('admin');})->name('admin');
+});
+
+Route::middleware(['role:dosen'])->group(function () {
+    Route::get('/dosen', function () {return view('dosen');})->name('dosen');
+});
+
 
 Route::redirect('/', '/login');
 
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-Route::post('login', [LoginController::class, 'login']);
+Route::middleware(['guest'])->group(function () {
+    Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+    Route::post('/login', [LoginController::class, 'login']);
+});
+// Route::get('/mahasiswa', function () {return view('mahasiswa');})->middleware('isLogin');
+// Route::get('/admin', function () {return view('admin');})->middleware('isLogin');
+// Route::get('/dosen', function () {return view('dosen');})->middleware('isLogin');
+// Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+// Route::post('/login', [LoginController::class, 'login']);
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
