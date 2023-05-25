@@ -68,7 +68,7 @@ class AdminController extends Controller
 
     $admin->update($validatedData);
 
-    return redirect()->route('dosens.index')->with('success', 'Dosen updated successfully.');
+    return redirect()->route('admins.index')->with('success', 'Admin updated successfully.');
 }
 
 
