@@ -8,7 +8,7 @@
             <div class="col-lg-6">
                 <div class="card border-0 shadow-sm p-4">
                     <div class="card-header text-center" style="background-color: #0C134F; color: #ffffff;">
-                        <h1 style="color: #ffffff;">Edit Dosen</h1>
+                        <h1 style="color: #ffffff;">Edit Attendance</h1>
                     </div>
 
                     @if($errors->any())

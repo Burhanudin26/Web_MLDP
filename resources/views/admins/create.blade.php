@@ -7,7 +7,7 @@
             <div class="col mb-4">
                 <div class="card border-0 shadow-sm">
                     <div class="card-header text-center" style="background-color: #0C134F; color: #ffffff">
-                        <h1>Create admin</h1>
+                        <h1>Create Admin</h1>
                     </div>
                     <div class="card-body" style="color: #000000;">
                         @if($errors->any())
